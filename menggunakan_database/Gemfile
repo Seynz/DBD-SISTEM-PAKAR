@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+gem 'sinatra'           # Framework web Sinatra
+gem 'sqlite3'           # Database SQLite3
+gem 'puma'              # Web server untuk Sinatra
+gem 'activerecord'      # Jika menggunakan ActiveRecord sebagai ORM (optional)
+gem 'sinatra-contrib'   # Fitur tambahan untuk Sinatra

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mulai Diagnosis</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Mulai Diagnosis DBD</h1>
+
+    <form action="/hasil_diagnosis" method="post">
+      <!-- Demam berlangsung kurang dari 7 hari -->
+      <div class="form-group">
+        <div class="question">
+          <label for="demam"> [G01] Apakah Anda mengalami Demam berlangsung kurang dari 7 hari?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gejala[G01]" value="G01" required> Ya</label>
+            <label><input type="radio" name="gejala[G01]" value="false" required> Tidak</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demam hari keempat tubuh terasa lemas -->
+      <div class="form-group">
+        <div class="question">
+          <label for="demam_hari_keempat">[G02] Apakah Demam hari keempat tubuh terasa lemas?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gejala[G02]" value="G02" required> Ya</label>
+            <label><input type="radio" name="gejala[G02]" value="false" required> Tidak</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Di lingkungan sekitar ada yang terjangkit DBD -->
+      <div class="form-group">
+        <div class="question">
+          <label for="lingkungan">[G03] Apakah di lingkungan sekitar ada yang terjangkit DBD?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gejala[G03]" value="G03" required> Ya</label>
+            <label><input type="radio" name="gejala[G03]" value="false" required> Tidak</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bintik merah pada tubuh -->
+      <div class="form-group">
+        <div class="question">
+          <label for="bintik_merah">[G04] Apakah Anda mengalami Bintik merah pada tubuh?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gejala[G04]" value="G04" required> Ya</label>
+            <label><input type="radio" name="gejala[G04]" value="false" required> Tidak</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pendarahan spontan dalam tubuh (gusi/air seni kemerahan) -->
+      <div class="form-group">
+        <div class="question">
+          <label for="pendarahan_spontan">[G05] Apakah Anda mengalami Pendarahan spontan dalam tubuh (gusi/air seni kemerahan)?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gejala[G05]" value="G05" required> Ya</label>
+            <label><input type="radio" name="gejala[G05]" value="false" required> Tidak</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mual muntah -->
+      <div class="form-group">
+        <div class="question">
+          <label for="mual_muntah">[G06] Apakah Anda merasa Mual muntah?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gejala[G06]" value="G06" required> Ya</label>
+            <label><input type="radio" name="gejala[G06]" value="false" required> Tidak</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nyeri kepala -->
+      <div class="form-group">
+        <div class="question">
+          <label for="nyeri_kepala">[G07] Apakah Anda mengalami Nyeri kepala?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gejala[G07]" value="G07" required> Ya</label>
+            <label><input type="radio" name="gejala[G07]" value="false" required> Tidak</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nyeri sendi -->
+      <div class="form-group">
+        <div class="question">
+          <label for="nyeri_sendi">[G08] Apakah Anda mengalami Nyeri sendi?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gejala[G08]" value="G08" required> Ya</label>
+            <label><input type="radio" name="gejala[G08]" value="false" required> Tidak</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nyeri ulu hati atau perut bagian atas -->
+      <div class="form-group">
+        <div class="question">
+          <label for="nyeri_ulu_hati">[G09] Apakah Anda mengalami Nyeri ulu hati atau perut bagian atas?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gejala[G09]" value="G09" required> Ya</label>
+            <label><input type="radio" name="gejala[G09]" value="false" required> Tidak</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tinja berwarna hitam -->
+      <div class="form-group">
+        <div class="question">
+          <label for="tinja_hitam">[G10] Apakah Anda mengalami Tinja berwarna hitam?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gejala[G10]" value="G10" required> Ya</label>
+            <label><input type="radio" name="gejala[G10]" value="false" required> Tidak</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Kirim Diagnosis</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

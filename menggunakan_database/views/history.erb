@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>History</title>
+</head>
+<body>
+  <h1>History</h1>
+  <form action="/tambah_history" method="post">
+    <label for="aturan_id">ID Aturan:</label>
+    <input type="number" name="aturan_id" id="aturan_id" required>
+    <br>
+    <button type="submit">Tambah History</button>
+  </form>
+
+  <h2>Daftar History</h2>
+  <ul>
+    <% @history.each do |history| %>
+      <li>
+        <%= history[2] %> | Aturan ID: <%= history[1] %>
+        <form action="/hapus_history" method="post" style="display:inline;">
+          <input type="hidden" name="history_id" value="<%= history[0] %>">
+          <button type="submit">Hapus</button>
+        </form>
+      </li>
+    <% end %>
+  </ul>
+</body>
+</html>

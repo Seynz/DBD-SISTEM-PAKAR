@@ -1,0 +1,211 @@
+/* Reset margin dan padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  overflow: auto; /* Memungkinkan konten untuk discroll */
+}
+
+/* Container Styling */
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+  max-height: 90vh; /* Membatasi tinggi kontainer agar tidak keluar layar */
+  overflow-y: auto; /* Membuat kontainer bisa discroll jika konten lebih dari tinggi layar */
+}
+
+/* Heading Styling */
+h1 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px; /* Memberikan ruang ekstra di bawah form */
+}
+
+/* Input Styling */
+input[type="text"], input[type="password"], select {
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Button Class Styling */
+.button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Radio Button Styling */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #e9ecef;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.radio-group label {
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #007bff; /* Custom color for the radio button */
+}
+
+/* Styling untuk setiap pertanyaan diagnosis */
+.question {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling untuk hasil diagnosis */
+.result {
+  background-color: #f4f4f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.result p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+/* Styling untuk Tabel */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Menghilangkan jarak antar border */
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f9;
+}
+
+td {
+  background-color: #ffffff;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Menambahkan warna latar belakang bergantian untuk baris */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  input[type="text"], input[type="password"], select, input[type="submit"], .button {
+    padding: 10px;
+  }
+
+  table {
+    font-size: 14px; /* Mengurangi ukuran font tabel pada perangkat kecil */
+  }
+
+  th, td {
+    padding: 8px; /* Mengurangi padding pada sel tabel */
+  }
+}

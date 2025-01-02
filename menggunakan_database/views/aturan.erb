@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aturan</title>
+</head>
+<body>
+  <h1>Aturan</h1>
+  <form action="/tambah_aturan" method="post">
+    <label for="nama">Nama Aturan:</label>
+    <input type="text" name="nama" id="nama" required>
+    <button type="submit">Tambah Aturan</button>
+  </form>
+  
+  <h2>Daftar Aturan</h2>
+  <ul>
+    <% @aturan.each do |aturan| %>
+      <li>
+        <b><%= aturan[1] %></b>: <%= aturan[2] %> | Gejala: <%= aturan[3] %>
+        <form action="/hapus_aturan" method="post" style="display:inline;">
+          <input type="hidden" name="aturan_id" value="<%= aturan[0] %>">
+          <button type="submit">Hapus</button>
+        </form>
+      </li>
+    <% end %>
+  </ul>
+</body>
+</html>

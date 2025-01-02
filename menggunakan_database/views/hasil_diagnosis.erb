@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasil Diagnosis</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Hasil Diagnosis</h1>
+    <div class="result">
+      <p><strong>Hasil diagnosis berdasarkan gejala Anda:</strong></p>
+      <p><strong>Gejala yang dipilih:</strong> <%= gejala %></p>
+      <p><strong>Diagnosis:</strong> <%= hasil %></p>
+    </div>
+    <form action="/save_history" method="post">
+      <input type="hidden" name="gejala" value="<%= gejala %>">
+      <input type="hidden" name="hasil" value="<%= hasil %>">
+      <input type="submit" value="Simpan Riwayat">
+    </form>
+    <a href="/mulai_diagnosis" class="button">Ulang Diagnosis</a>
+  </div>
+</body>
+</html>

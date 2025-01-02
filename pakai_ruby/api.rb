@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sqlite3'
 require 'erb'
 
+
 # Inisialisasi database
 DB = SQLite3::Database.new 'history.db'
 DB.execute <<-SQL
@@ -13,6 +14,20 @@ DB.execute <<-SQL
   );
 SQL
 
+# Membuat tabel users jika belum ada
+DB.execute <<-SQL
+  CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE,
+    password TEXT
+  );
+SQL
+# Menambahkan user pertama kali, tanpa hash password
+DB.execute("INSERT OR IGNORE INTO users (username, password) VALUES (?, ?)", ["admin", "admin123"])
+
+
+
+
 # Menyusun aturan diagnosis
 class Pakar
   def initialize
@@ -23,6 +38,7 @@ class Pakar
     @aturan << { hasil: hasil, gejala: gejala }
   end
 
+  # Fungsi backward chaining
   # Fungsi backward chaining yang lebih ketat
   def diagnosa(gejala_terpilih)
     hasil_hipotesis = []
@@ -42,8 +58,8 @@ class Pakar
 
     hasil_hipotesis
   end
-end
 
+end
 
 # Menambahkan aturan-aturan diagnosis yang lebih cocok dengan backward chaining
 sistem_pakar = Pakar.new
@@ -60,9 +76,22 @@ get '/login' do
   erb :login
 end
 
+# Fungsi untuk memeriksa login
 post '/login' do
-  redirect to('/mulai_diagnosis')
+  username = params[:username]
+  password = params[:password]
+
+  # Ambil user berdasarkan username
+  user = DB.execute("SELECT * FROM users WHERE username = ?", [username]).first
+
+  if user && user[2] == password  # Cek password langsung tanpa hashing
+    redirect to('/mulai_diagnosis')
+  else
+    @error = "Username atau password Salah!"
+    erb :login
+  end
 end
+
 
 # Routing untuk mulai diagnosis
 get '/mulai_diagnosis' do
@@ -85,11 +114,6 @@ post '/hasil_diagnosis' do
 
   erb :hasil_diagnosis, locals: { hasil: @hasil, gejala: gejala_terpilih.join(', ') }
 end
-
-
-
-
-
 
 
 # Routing untuk menyimpan hasil diagnosis ke dalam riwayat
@@ -141,7 +165,6 @@ post '/delete_history' do
   delete_history(params[:id])  # Menghapus riwayat berdasarkan ID
   redirect to('/history')  # Setelah menghapus, arahkan kembali ke halaman riwayat
 end
-
 
 # Routing untuk menghapus semua riwayat dengan metode POST
 post '/delete_all_history' do

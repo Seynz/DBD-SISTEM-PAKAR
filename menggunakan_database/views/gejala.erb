@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gejala</title>
+</head>
+<body>
+  <h1>Gejala</h1>
+  <form action="/tambah_gejala" method="post">
+    <label for="nama">Nama Gejala:</label>
+    <input type="text" name="nama" id="nama" required>
+    <br>
+    <button type="submit">Tambah Gejala</button>
+  </form>
+
+  <h2>Daftar Gejala</h2>
+  <ul>
+    <% @gejala.each do |gejala| %>
+      <li>
+        <%= gejala[1] %>
+        <form action="/hapus_gejala" method="post" style="display:inline;">
+          <input type="hidden" name="gejala_id" value="<%= gejala[0] %>">
+          <button type="submit">Hapus</button>
+        </form>
+      </li>
+    <% end %>
+  </ul>
+</body>
+</html>
