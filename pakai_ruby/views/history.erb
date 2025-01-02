@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riwayat Diagnosis</title>
+  <link rel="stylesheet" href="/styles.css"> <!-- Menghubungkan ke file CSS -->
+</head>
+<body>
+  <div class="container">
+    <h2>Riwayat Diagnosis</h2>
+
+    <!-- Tabel Riwayat -->
+    <table>
+      <tr>
+        <th>Gejala</th>
+        <th>Hasil Diagnosis</th>
+        <th>Tanggal</th>
+        <th>Hapus</th>
+      </tr>
+      <% @history.each do |row| %>
+        <tr>
+          <td><%= row[1] %></td>
+          <td><%= row[2] %></td>
+          <td><%= row[3] %></td>
+          <td>
+            <form action="/delete_history" method="post">
+              <input type="hidden" name="id" value="<%= row[0] %>">
+              <input type="submit" value="Hapus">
+            </form>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <!-- Hapus Semua Riwayat -->
+    <form action="/delete_all_history" method="post">
+      <input type="submit" value="Hapus Semua Riwayat" class="btn-danger">
+    </form>
+
+    <!-- Tombol Kembali -->
+    <a href="/mulai_diagnosis">
+      <button class="btn-primary">Kembali ke Mulai Diagnosis</button>
+    </a>
+  </div>
+</body>
+</html>
